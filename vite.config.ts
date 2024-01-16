@@ -16,10 +16,4 @@ export default defineConfig({
       assets: resolve(__dirname, 'src/assets'),
     },
   },
-  server: {
-    https: {
-      key: fs.readFileSync('/Users/sarah/key_localhost.pem'),
-      cert: fs.readFileSync('/Users/sarah/cert_localhost.pem'),
-    },
-  },
 });
