@@ -44,7 +44,7 @@ export const RecordingProvider = ({ children }: RecordingProviderProps) => {
 
   const [videoBlobUrl, setVideoBlobUrl] = useState<string | null>(null);
 
-  const handleRecordingComplete = (blob) => {
+  const handleRecordingComplete = (blob: Blob) => {
     const url = URL.createObjectURL(blob);
     console.log("Blob URL:", url); // Check if the URL is being logged
     setVideoBlobUrl(url);
