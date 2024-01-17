@@ -104,7 +104,7 @@ export const RecordingProvider = ({ children }: RecordingProviderProps) => {
 
         try {
           // Use fetch to send the FormData to the server
-          const response = await fetch('http://localhost:2000/upload', {
+          const response = await fetch('https://researchaudiorecorder.com/video/api/upload', {
             method: 'POST',
             body: formData,
           });
