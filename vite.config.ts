@@ -4,6 +4,7 @@ import fs from 'fs';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  base: '/video/',
   plugins: [react()],
   resolve: {
     alias: {
