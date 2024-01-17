@@ -51,7 +51,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // File upload route
-app.post('/upload', upload.single('recording'), (req, res) => {
+app.post('video/api/upload', upload.single('recording'), (req, res) => {
     if (!req.file) {
         return res.status(400).send('No file was uploaded.');
     }
