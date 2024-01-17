@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, useState, useEffect } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 
 import { composeStreams } from 'services/composer';
 
@@ -50,10 +50,6 @@ export const RecordingProvider = ({ children }: RecordingProviderProps) => {
     setVideoBlobUrl(url);
   };
   
-  useEffect(() => {
-    setUniqueIdentifierCookie(); // Set the cookie when the component mounts
-  }, []);
-  
 
   const startRecording = () => {
     setIsRecording(true);
@@ -89,14 +85,9 @@ export const RecordingProvider = ({ children }: RecordingProviderProps) => {
         const formData = new FormData();
         //formData.append('recording', blob, 'recording.webm');
 
-        const userId = getCookie("userId"); // Retrieve the unique identifier cookie
-        if (userId) {
-          formData.append('userId', userId);
-        } else {
-          console.error('userId is null');
-
         var randomUUID = generateUUID();
         setRandomUUID(randomUUID);
+        var userId = getCookie("userId");
 
         const microphoneLabel = await getMicrophoneDetails();
         
