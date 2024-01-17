@@ -81,7 +81,7 @@ const App = () => {
           </ul>
         <p>Once you have completed recording:</p>
         <ul className={styles.roundBullets}>
-          <li>A 'recording identifier' will be provided below this text in <p class="blue-text">blue</p>. Copy this back into your survey response.</li>
+          <li>A 'recording identifier' will be provided below this text in <span style={{ color: 'blue' }}>blue</span>. Copy this back into your survey response.</li>
           <li>You can re-record yourself as many times as you wish, but only paste the <b>final</b> identifier into the survey response.</li>
           <li>There will be an option to download and playback the video to check it worked properly.</li>
         </ul>
