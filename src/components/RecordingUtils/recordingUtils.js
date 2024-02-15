@@ -64,4 +64,4 @@ function getDeviceDetails() {
 }
 
 
-export { generateUUID, setUniqueIdentifierCookie, getCookie, getMicrophoneDetails };
+export { generateUUID, setUniqueIdentifierCookie, getCookie, getDeviceDetails };
