@@ -32,21 +32,36 @@ function getCookie(cookieName) {
   return null;
 }
 
-function getMicrophoneDetails() {
+function getDeviceDetails() {
   return new Promise((resolve, reject) => {
     navigator.mediaDevices.enumerateDevices()
       .then(devices => {
         const microphone = devices.find(device => device.kind === 'audioinput' && device.label);
+        const webcam = devices.find(device => device.kind === 'videoinput' && device.label);
+        
+        let details = "Devices: ";
+        
         if (microphone) {
-          resolve(microphone.label);
+          details += `Microphone: ${microphone.label}`;
         } else {
-          resolve("Microphone not found or not accessible");
+          details += "Microphone not found or not accessible";
         }
+
+        details += ", "; // Separator between microphone and webcam details
+        
+        if (webcam) {
+          details += `Webcam: ${webcam.label}`;
+        } else {
+          details += "Webcam not found or not accessible";
+        }
+        
+        resolve(details);
       })
       .catch(err => {
         reject(err);
       });
   });
 }
+
 
 export { generateUUID, setUniqueIdentifierCookie, getCookie, getMicrophoneDetails };

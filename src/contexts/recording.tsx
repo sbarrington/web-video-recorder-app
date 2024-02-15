@@ -5,7 +5,7 @@ import { composeStreams } from 'services/composer';
 import { useLayout } from './layout';
 import { useStreams } from './streams';
 
-import { generateUUID, setUniqueIdentifierCookie, getCookie, getMicrophoneDetails } from '../components/RecordingUtils/recordingUtils'; 
+import { generateUUID, setUniqueIdentifierCookie, getCookie, getDeviceDetails } from '../components/RecordingUtils/recordingUtils'; 
 
 type RecordingContextType = {
   isRecording: boolean;
@@ -89,12 +89,12 @@ export const RecordingProvider = ({ children }: RecordingProviderProps) => {
         setRandomUUID(randomUUID);
         var userId = getCookie("userId");
 
-        const microphoneLabel = await getMicrophoneDetails();
+        const deviceDetails = await getDeviceDetails();
         
         // Capture the User-Agent string
         const userAgent = navigator.userAgent;
         //formData.append('userAgent', userAgent); // Append User-Agent to the formData
-        formData.append('microphone', microphoneLabel); // Append microphone details to the formData
+        formData.append('microphone', deviceDetails); // Append microphone details to the formData
 
         formData.append('recording', blob, userId + '_' + randomUUID + '.webm');
         if (userId !== null) {
