@@ -52,11 +52,14 @@ export const getCameraStream = (deviceId: string): Promise<MediaStream> => {
   return navigator.mediaDevices.getUserMedia({
     video: {
       deviceId,
-      //aspectRatio: 16 / 9,
-      width: 1280,
-      height: 720,
+      width: { min: 1280 },
+      height: { min: 720 },
     },
     audio: false,
+  })
+  .catch(error => {
+    console.error('Could not meet the required video resolution constraints:', error);
+    throw error; 
   });
 };
 
