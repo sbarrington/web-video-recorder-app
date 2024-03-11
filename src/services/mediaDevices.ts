@@ -52,8 +52,8 @@ export const getCameraStream = (deviceId: string): Promise<MediaStream> => {
   return navigator.mediaDevices.getUserMedia({
     video: {
       deviceId,
-      width: { ideal: 1280 },
-      height: { ideal: 720 },
+      width: { ideal: 3840 },
+      height: { ideal: 2160 },
     },
     audio: false,
   })
